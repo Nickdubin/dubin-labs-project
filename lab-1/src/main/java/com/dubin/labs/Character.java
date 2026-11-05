@@ -69,7 +69,15 @@ public class Character {
         if (o == this) return true;
         if (o == null || this.getClass() != o.getClass()) return false;
         Character character = (Character) o;
-        return id == character.id && Objects.equals(name, character.name) && Objects.equals(status, character.status) && Objects.equals(species, character.species) && Objects.equals(type, character.type) && Objects.equals(gender, character.gender) && Objects.equals(originName, character.originName) && Objects.equals(locationName, character.locationName) && Objects.equals(created, character.created);
+        return id == character.id &&
+                Objects.equals(name, character.name) &&
+                Objects.equals(status, character.status) &&
+                Objects.equals(species, character.species) &&
+                Objects.equals(type, character.type) &&
+                Objects.equals(gender, character.gender) &&
+                Objects.equals(originName, character.originName) &&
+                Objects.equals(locationName, character.locationName) &&
+                Objects.equals(created, character.created);
     }
 
     @Override

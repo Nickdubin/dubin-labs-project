@@ -1,17 +1,25 @@
 package com.dubin.labs;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    static void main() {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how OpenIDE suggests fixing it.
-        IO.println("Hello and welcome!");
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.Objects;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            IO.println("i = " + i);
-        }
+public class Main {
+
+    static void main() throws IOException, URISyntaxException {
+        Path csvInputFile = Path.of(Objects.requireNonNull(Main.class.getResource("/characters.csv")).toURI());
+        Path csvOutputFile = Path.of("characters_sorted_by_name.csv");
+
+        CsvReadWriteService service = new CsvReadWriteService();
+        ArrayList<Character> characters = service.readCharacters(csvInputFile);
+
+        characters.sort(new CharacterComparator());
+
+        service.writeCharacters(csvOutputFile, characters);
+
+        System.out.println("Characters sorted by name were written to " + csvOutputFile.toAbsolutePath());
     }
+
 }
