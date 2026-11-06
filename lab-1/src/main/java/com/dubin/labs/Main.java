@@ -8,7 +8,7 @@ import java.util.Objects;
 
 public class Main {
 
-    static void main() throws IOException, URISyntaxException {
+    public static void main() throws IOException, URISyntaxException {
         Path csvInputFile = Path.of(Objects.requireNonNull(Main.class.getResource("/characters.csv")).toURI());
         Path csvOutputFile = Path.of("characters_sorted_by_name.csv");
 
