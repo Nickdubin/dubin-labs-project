@@ -15,11 +15,21 @@ public class Main {
         CsvReadWriteService service = new CsvReadWriteService();
         ArrayList<Character> characters = service.readCharacters(csvInputFile);
 
-        characters.sort(new CharacterComparator());
+        ArrayList<Character> sortedCharacters = sortCharacters(characters);
 
-        service.writeCharacters(csvOutputFile, characters);
+        service.writeCharacters(csvOutputFile, sortedCharacters);
 
         System.out.println("Characters sorted by name were written to " + csvOutputFile.toAbsolutePath());
+    }
+
+    public static ArrayList<Character> sortCharacters(ArrayList<Character> characters) {
+        characters.sort(new CharacterComparator());
+        int id = 1;
+        for (Character character : characters) {
+            character.setId(id);
+            ++id;
+        }
+        return characters;
     }
 
 }

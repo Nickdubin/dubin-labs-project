@@ -64,6 +64,42 @@ public class Character {
         return created;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setSpecies(String species) {
+        this.species = species;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setOriginName(String originName) {
+        this.originName = originName;
+    }
+
+    public void setLocationName(String locationName) {
+        this.locationName = locationName;
+    }
+
+    public void setCreated(String created) {
+        this.created = created;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == this) return true;

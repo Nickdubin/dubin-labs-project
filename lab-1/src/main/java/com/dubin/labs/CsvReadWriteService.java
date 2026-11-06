@@ -39,10 +39,8 @@ public class CsvReadWriteService {
         try (BufferedWriter writer = Files.newBufferedWriter(csvFile, StandardCharsets.UTF_8)) {
             writer.write("id,name,status,species,type,gender,origin/name,location/name,created");
             writer.newLine();
-            for (int i = 0; i < characters.size(); ++i) {
-                Character character = characters.get(i);
-                int idx = i + 1;
-                writer.write(idx + "," +
+            for (Character character : characters) {
+                writer.write(character.getId() + "," +
                         character.getName() + "," +
                         character.getStatus() + "," +
                         character.getSpecies() + "," +
